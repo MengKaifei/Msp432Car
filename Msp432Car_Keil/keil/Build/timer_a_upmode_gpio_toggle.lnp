@@ -1,0 +1,14 @@
+--cpu=Cortex-M4.fp.sp
+".\build\msp432carmain.o"
+"..\ti\driverlib\MSP432P4xx\keil\msp432p4xx_driverlib.lib"
+".\build\delay.o"
+".\build\key.o"
+".\build\sysinit.o"
+".\build\tima.o"
+".\build\pid.o"
+".\build\startup_msp432p401r_uvision.o"
+".\build\system_msp432p401r.o"
+--library_type=microlib --strict --scatter ".\Build\timer_a_upmode_gpio_toggle.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\timer_a_upmode_gpio_toggle.map" -o .\Build\timer_a_upmode_gpio_toggle.axf

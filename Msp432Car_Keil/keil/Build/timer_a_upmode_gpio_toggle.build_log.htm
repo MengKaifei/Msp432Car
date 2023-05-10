@@ -1,0 +1,77 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 Administrator, Administrator, LIC=TIVNB-20E15-HLDCL-0MZLL-EZBPY-08WV8
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.33.0.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+E:\Msp432Space\Msp432Car_Keil\keil\timer_a_upmode_gpio_toggle.uvprojx
+Project File Date:  05/04/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Msp432Car'
+compiling timA.c...
+..\lib\timA.h(50): warning:  #1295-D: Deprecated declaration TimA0_4_PWM_Init - give arg types
+  void TimA0_4_PWM_Init();
+..\lib\timA.h(52): warning:  #1295-D: Deprecated declaration TimA0_4_PWM_stop - give arg types
+  void TimA0_4_PWM_stop();
+..\lib\timA.h(55): warning:  #1295-D: Deprecated declaration TimA1_4_PWM_Init - give arg types
+  void TimA1_4_PWM_Init();
+..\lib\timA.h(57): warning:  #1295-D: Deprecated declaration TimA1_4_PWM_stop - give arg types
+  void TimA1_4_PWM_stop();
+..\lib\timA.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=5168 RO-data=392 RW-data=172 ZI-data=548  
+After Build - User command #1: fromelf --bin --output .\Build\timer_a_upmode_gpio_toggle.bin .\Build\timer_a_upmode_gpio_toggle.axf
+".\Build\timer_a_upmode_gpio_toggle.axf" - 0 Error(s), 4 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: TexasInstruments
+                http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/msp432cmsis/latest/exports/TexasInstruments.MSP432P4xx_DFP.3.2.6.pack
+                TexasInstruments.MSP432P4xx_DFP.3.2.6
+                Device Family Pack for Texas Instruments SimpleLink(TM) MSP432 Series
+   * Component: Startup Version: 3.2.2
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Msp432Car
+  C:\Users\22347\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\22347\AppData\Local\Arm\Packs\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+
+   * Component: TexasInstruments::Device:Startup:3.2.2
+      Source file:   Examples\BlinkLED\blinkLED.c
+      Include file:  Device\Include\msp_compatibility.h
+      Source file:   Examples\EmptyMain\main.c
+      Source file:   Device\Source\startup_msp432p401r_uvision.s
+      Source file:   Device\Source\system_msp432p401r.c
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
