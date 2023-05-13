@@ -27,20 +27,50 @@ Project File Date:  05/04/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Msp432Car'
-compiling timA.c...
-..\lib\timA.h(50): warning:  #1295-D: Deprecated declaration TimA0_4_PWM_Init - give arg types
+compiling Msp432CarMain.c...
+..\lib\timA.h(51): warning:  #1295-D: Deprecated declaration TimA0_4_PWM_Init - give arg types
   void TimA0_4_PWM_Init();
-..\lib\timA.h(52): warning:  #1295-D: Deprecated declaration TimA0_4_PWM_stop - give arg types
+..\lib\timA.h(53): warning:  #1295-D: Deprecated declaration TimA0_4_PWM_stop - give arg types
   void TimA0_4_PWM_stop();
-..\lib\timA.h(55): warning:  #1295-D: Deprecated declaration TimA1_4_PWM_Init - give arg types
+..\lib\timA.h(56): warning:  #1295-D: Deprecated declaration TimA1_4_PWM_Init - give arg types
   void TimA1_4_PWM_Init();
-..\lib\timA.h(57): warning:  #1295-D: Deprecated declaration TimA1_4_PWM_stop - give arg types
+..\lib\timA.h(58): warning:  #1295-D: Deprecated declaration TimA1_4_PWM_stop - give arg types
   void TimA1_4_PWM_stop();
-..\lib\timA.c: 4 warnings, 0 errors
+..\lib\timA.h(63): warning:  #1295-D: Deprecated declaration read_us_values - give arg types
+  void read_us_values();
+..\lib\timA.h(65): warning:  #1295-D: Deprecated declaration i2c_init - give arg types
+  void i2c_init();
+..\Msp432CarMain.c(12): warning:  #1295-D: Deprecated declaration motor_pinint - give arg types
+  void motor_pinint();    //初始化电机引�?
+..\Msp432CarMain.c(13): warning:  #1295-D: Deprecated declaration start - give arg types
+  void start();           //开�?
+..\Msp432CarMain.c(14): warning:  #1295-D: Deprecated declaration stop - give arg types
+  void stop();            //停车
+..\Msp432CarMain.c(19): warning:  #940-D: missing return statement at end of non-void function "fputc" 
+  }
+..\Msp432CarMain.c: 10 warnings, 0 errors
+compiling timA.c...
+..\lib\timA.h(51): warning:  #1295-D: Deprecated declaration TimA0_4_PWM_Init - give arg types
+  void TimA0_4_PWM_Init();
+..\lib\timA.h(53): warning:  #1295-D: Deprecated declaration TimA0_4_PWM_stop - give arg types
+  void TimA0_4_PWM_stop();
+..\lib\timA.h(56): warning:  #1295-D: Deprecated declaration TimA1_4_PWM_Init - give arg types
+  void TimA1_4_PWM_Init();
+..\lib\timA.h(58): warning:  #1295-D: Deprecated declaration TimA1_4_PWM_stop - give arg types
+  void TimA1_4_PWM_stop();
+..\lib\timA.h(63): warning:  #1295-D: Deprecated declaration read_us_values - give arg types
+  void read_us_values();
+..\lib\timA.h(65): warning:  #1295-D: Deprecated declaration i2c_init - give arg types
+  void i2c_init();
+..\lib\timA.c(297): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		distance=((float)count / 58.0);	
+..\lib\timA.c(350): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	if (usValue < 50.0){
+..\lib\timA.c: 8 warnings, 0 errors
 linking...
-Program Size: Code=5168 RO-data=392 RW-data=172 ZI-data=548  
+Program Size: Code=4996 RO-data=392 RW-data=236 ZI-data=516  
 After Build - User command #1: fromelf --bin --output .\Build\timer_a_upmode_gpio_toggle.bin .\Build\timer_a_upmode_gpio_toggle.axf
-".\Build\timer_a_upmode_gpio_toggle.axf" - 0 Error(s), 4 Warning(s).
+".\Build\timer_a_upmode_gpio_toggle.axf" - 0 Error(s), 18 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -66,11 +96,11 @@ Package Vendor: TexasInstruments
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: TexasInstruments::Device:Startup:3.2.2
-      Source file:   Examples\BlinkLED\blinkLED.c
       Include file:  Device\Include\msp_compatibility.h
-      Source file:   Examples\EmptyMain\main.c
       Source file:   Device\Source\startup_msp432p401r_uvision.s
+      Source file:   Examples\BlinkLED\blinkLED.c
       Source file:   Device\Source\system_msp432p401r.c
+      Source file:   Examples\EmptyMain\main.c
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

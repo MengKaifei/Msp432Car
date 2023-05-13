@@ -40,9 +40,17 @@ Section Cross References
     sysinit.o(i.SysInit) refers to cs.o(i.CS_setExternalClockSourceFrequency) for CS_setExternalClockSourceFrequency
     sysinit.o(i.SysInit) refers to cs.o(i.CS_startHFXT) for CS_startHFXT
     sysinit.o(i.SysInit) refers to cs.o(i.CS_startLFXT) for CS_startLFXT
+    tima.o(i.Distance) refers to gpio.o(i.GPIO_setOutputLowOnPin) for GPIO_setOutputLowOnPin
+    tima.o(i.Distance) refers to gpio.o(i.GPIO_setOutputHighOnPin) for GPIO_setOutputHighOnPin
+    tima.o(i.Distance) refers to delay.o(i.delay_us) for delay_us
+    tima.o(i.Distance) refers to gpio.o(i.GPIO_getInputPinValue) for GPIO_getInputPinValue
+    tima.o(i.Distance) refers to tima.o(.data) for .data
+    tima.o(i.EUSCIB0_IRQHandler) refers to tima.o(.data) for .data
     tima.o(i.TA2_0_IRQHandler) refers to tima.o(i.read_sensor_values) for read_sensor_values
     tima.o(i.TA2_0_IRQHandler) refers to pid.o(i.PID_Update) for PID_Update
     tima.o(i.TA2_0_IRQHandler) refers to tima.o(i.TimA1_4_PWM_set_angle) for TimA1_4_PWM_set_angle
+    tima.o(i.TA2_0_IRQHandler) refers to tima.o(i.read_us_values) for read_us_values
+    tima.o(i.TA2_0_IRQHandler) refers to tima.o(i.TimA0_4_PWM_set_duty) for TimA0_4_PWM_set_duty
     tima.o(i.TA2_0_IRQHandler) refers to tima.o(.data) for .data
     tima.o(i.TimA0_4_PWM_set_duty) refers to dflti.o(.text) for __aeabi_i2d
     tima.o(i.TimA0_4_PWM_set_duty) refers to ddiv.o(.text) for __aeabi_ddiv
@@ -59,14 +67,20 @@ Section Cross References
     tima.o(i.TimA1_4_PWM_set_angle) refers to tima.o(.data) for .data
     tima.o(i.TimA1_4_PWM_stop) refers to tima.o(i.TimA1_4_PWM_set_angle) for TimA1_4_PWM_set_angle
     tima.o(i.TimA2_Int_Init) refers to pid.o(i.PID_Init) for PID_Init
+    tima.o(i.TimA2_Int_Init) refers to tima.o(i.HCSR04Init) for HCSR04Init
     tima.o(i.TimA2_Int_Init) refers to tima.o(.data) for .data
+    tima.o(i.i2c_init) refers to tima.o(.data) for .data
+    tima.o(i.i2c_init) refers to tima.o(.bss) for .bss
+    tima.o(i.i2c_init) refers to tima.o(.constdata) for .constdata
     tima.o(i.read_sensor_values) refers to gpio.o(i.GPIO_getInputPinValue) for GPIO_getInputPinValue
-    tima.o(i.read_sensor_values) refers to printf1.o(i.__0printf$1) for __2printf
-    tima.o(i.read_sensor_values) refers to tima.o(.bss) for .bss
+    tima.o(i.read_sensor_values) refers to tima.o(i.TimA0_4_PWM_set_duty) for TimA0_4_PWM_set_duty
     tima.o(i.read_sensor_values) refers to tima.o(.data) for .data
+    tima.o(i.read_us_values) refers to tima.o(i.Distance) for Distance
+    tima.o(i.read_us_values) refers to tima.o(.data) for .data
     startup_msp432p401r_uvision.o(RESET) refers to startup_msp432p401r_uvision.o(STACK) for __initial_sp
     startup_msp432p401r_uvision.o(RESET) refers to startup_msp432p401r_uvision.o(.text) for Reset_Handler
     startup_msp432p401r_uvision.o(RESET) refers to tima.o(i.TA2_0_IRQHandler) for TA2_0_IRQHandler
+    startup_msp432p401r_uvision.o(RESET) refers to tima.o(i.EUSCIB0_IRQHandler) for EUSCIB0_IRQHandler
     startup_msp432p401r_uvision.o(.text) refers to system_msp432p401r.o(i.SystemInit) for SystemInit
     startup_msp432p401r_uvision.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     system_msp432p401r.o(i.SystemCoreClockUpdate) refers to system_msp432p401r.o(.data) for .data
@@ -153,242 +167,6 @@ Section Cross References
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
-    printfb.o(i.__0fprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
-    printfb.o(i.__0fprintf$bare) refers to msp432carmain.o(i.fputc) for fputc
-    printfb.o(i.__0printf$bare) refers to printfb.o(i._printf_core) for _printf_core
-    printfb.o(i.__0printf$bare) refers to msp432carmain.o(i.fputc) for fputc
-    printfb.o(i.__0printf$bare) refers to stdout.o(.data) for __stdout
-    printfb.o(i.__0snprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
-    printfb.o(i.__0snprintf$bare) refers to printfb.o(i._snputc) for _snputc
-    printfb.o(i.__0sprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
-    printfb.o(i.__0sprintf$bare) refers to printfb.o(i._sputc) for _sputc
-    printfb.o(i.__0vfprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
-    printfb.o(i.__0vfprintf$bare) refers to msp432carmain.o(i.fputc) for fputc
-    printfb.o(i.__0vprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
-    printfb.o(i.__0vprintf$bare) refers to msp432carmain.o(i.fputc) for fputc
-    printfb.o(i.__0vprintf$bare) refers to stdout.o(.data) for __stdout
-    printfb.o(i.__0vsnprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
-    printfb.o(i.__0vsnprintf$bare) refers to printfb.o(i._snputc) for _snputc
-    printfb.o(i.__0vsprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
-    printfb.o(i.__0vsprintf$bare) refers to printfb.o(i._sputc) for _sputc
-    printf0.o(i.__0fprintf$0) refers to printf0.o(i._printf_core) for _printf_core
-    printf0.o(i.__0fprintf$0) refers to msp432carmain.o(i.fputc) for fputc
-    printf0.o(i.__0printf$0) refers to printf0.o(i._printf_core) for _printf_core
-    printf0.o(i.__0printf$0) refers to msp432carmain.o(i.fputc) for fputc
-    printf0.o(i.__0printf$0) refers to stdout.o(.data) for __stdout
-    printf0.o(i.__0snprintf$0) refers to printf0.o(i._printf_core) for _printf_core
-    printf0.o(i.__0snprintf$0) refers to printf0.o(i._snputc) for _snputc
-    printf0.o(i.__0sprintf$0) refers to printf0.o(i._printf_core) for _printf_core
-    printf0.o(i.__0sprintf$0) refers to printf0.o(i._sputc) for _sputc
-    printf0.o(i.__0vfprintf$0) refers to printf0.o(i._printf_core) for _printf_core
-    printf0.o(i.__0vfprintf$0) refers to msp432carmain.o(i.fputc) for fputc
-    printf0.o(i.__0vprintf$0) refers to printf0.o(i._printf_core) for _printf_core
-    printf0.o(i.__0vprintf$0) refers to msp432carmain.o(i.fputc) for fputc
-    printf0.o(i.__0vprintf$0) refers to stdout.o(.data) for __stdout
-    printf0.o(i.__0vsnprintf$0) refers to printf0.o(i._printf_core) for _printf_core
-    printf0.o(i.__0vsnprintf$0) refers to printf0.o(i._snputc) for _snputc
-    printf0.o(i.__0vsprintf$0) refers to printf0.o(i._printf_core) for _printf_core
-    printf0.o(i.__0vsprintf$0) refers to printf0.o(i._sputc) for _sputc
-    printf1.o(i.__0fprintf$1) refers to printf1.o(i._printf_core) for _printf_core
-    printf1.o(i.__0fprintf$1) refers to msp432carmain.o(i.fputc) for fputc
-    printf1.o(i.__0printf$1) refers to printf1.o(i._printf_core) for _printf_core
-    printf1.o(i.__0printf$1) refers to msp432carmain.o(i.fputc) for fputc
-    printf1.o(i.__0printf$1) refers to stdout.o(.data) for __stdout
-    printf1.o(i.__0snprintf$1) refers to printf1.o(i._printf_core) for _printf_core
-    printf1.o(i.__0snprintf$1) refers to printf1.o(i._snputc) for _snputc
-    printf1.o(i.__0sprintf$1) refers to printf1.o(i._printf_core) for _printf_core
-    printf1.o(i.__0sprintf$1) refers to printf1.o(i._sputc) for _sputc
-    printf1.o(i.__0vfprintf$1) refers to printf1.o(i._printf_core) for _printf_core
-    printf1.o(i.__0vfprintf$1) refers to msp432carmain.o(i.fputc) for fputc
-    printf1.o(i.__0vprintf$1) refers to printf1.o(i._printf_core) for _printf_core
-    printf1.o(i.__0vprintf$1) refers to msp432carmain.o(i.fputc) for fputc
-    printf1.o(i.__0vprintf$1) refers to stdout.o(.data) for __stdout
-    printf1.o(i.__0vsnprintf$1) refers to printf1.o(i._printf_core) for _printf_core
-    printf1.o(i.__0vsnprintf$1) refers to printf1.o(i._snputc) for _snputc
-    printf1.o(i.__0vsprintf$1) refers to printf1.o(i._printf_core) for _printf_core
-    printf1.o(i.__0vsprintf$1) refers to printf1.o(i._sputc) for _sputc
-    printf1.o(i._printf_core) refers to uidiv.o(.text) for __aeabi_uidivmod
-    printf2.o(i.__0fprintf$2) refers to printf2.o(i._printf_core) for _printf_core
-    printf2.o(i.__0fprintf$2) refers to msp432carmain.o(i.fputc) for fputc
-    printf2.o(i.__0printf$2) refers to printf2.o(i._printf_core) for _printf_core
-    printf2.o(i.__0printf$2) refers to msp432carmain.o(i.fputc) for fputc
-    printf2.o(i.__0printf$2) refers to stdout.o(.data) for __stdout
-    printf2.o(i.__0snprintf$2) refers to printf2.o(i._printf_core) for _printf_core
-    printf2.o(i.__0snprintf$2) refers to printf2.o(i._snputc) for _snputc
-    printf2.o(i.__0sprintf$2) refers to printf2.o(i._printf_core) for _printf_core
-    printf2.o(i.__0sprintf$2) refers to printf2.o(i._sputc) for _sputc
-    printf2.o(i.__0vfprintf$2) refers to printf2.o(i._printf_core) for _printf_core
-    printf2.o(i.__0vfprintf$2) refers to msp432carmain.o(i.fputc) for fputc
-    printf2.o(i.__0vprintf$2) refers to printf2.o(i._printf_core) for _printf_core
-    printf2.o(i.__0vprintf$2) refers to msp432carmain.o(i.fputc) for fputc
-    printf2.o(i.__0vprintf$2) refers to stdout.o(.data) for __stdout
-    printf2.o(i.__0vsnprintf$2) refers to printf2.o(i._printf_core) for _printf_core
-    printf2.o(i.__0vsnprintf$2) refers to printf2.o(i._snputc) for _snputc
-    printf2.o(i.__0vsprintf$2) refers to printf2.o(i._printf_core) for _printf_core
-    printf2.o(i.__0vsprintf$2) refers to printf2.o(i._sputc) for _sputc
-    printf3.o(i.__0fprintf$3) refers to printf3.o(i._printf_core) for _printf_core
-    printf3.o(i.__0fprintf$3) refers to msp432carmain.o(i.fputc) for fputc
-    printf3.o(i.__0printf$3) refers to printf3.o(i._printf_core) for _printf_core
-    printf3.o(i.__0printf$3) refers to msp432carmain.o(i.fputc) for fputc
-    printf3.o(i.__0printf$3) refers to stdout.o(.data) for __stdout
-    printf3.o(i.__0snprintf$3) refers to printf3.o(i._printf_core) for _printf_core
-    printf3.o(i.__0snprintf$3) refers to printf3.o(i._snputc) for _snputc
-    printf3.o(i.__0sprintf$3) refers to printf3.o(i._printf_core) for _printf_core
-    printf3.o(i.__0sprintf$3) refers to printf3.o(i._sputc) for _sputc
-    printf3.o(i.__0vfprintf$3) refers to printf3.o(i._printf_core) for _printf_core
-    printf3.o(i.__0vfprintf$3) refers to msp432carmain.o(i.fputc) for fputc
-    printf3.o(i.__0vprintf$3) refers to printf3.o(i._printf_core) for _printf_core
-    printf3.o(i.__0vprintf$3) refers to msp432carmain.o(i.fputc) for fputc
-    printf3.o(i.__0vprintf$3) refers to stdout.o(.data) for __stdout
-    printf3.o(i.__0vsnprintf$3) refers to printf3.o(i._printf_core) for _printf_core
-    printf3.o(i.__0vsnprintf$3) refers to printf3.o(i._snputc) for _snputc
-    printf3.o(i.__0vsprintf$3) refers to printf3.o(i._printf_core) for _printf_core
-    printf3.o(i.__0vsprintf$3) refers to printf3.o(i._sputc) for _sputc
-    printf3.o(i._printf_core) refers to uidiv.o(.text) for __aeabi_uidivmod
-    printf4.o(i.__0fprintf$4) refers to printf4.o(i._printf_core) for _printf_core
-    printf4.o(i.__0fprintf$4) refers to msp432carmain.o(i.fputc) for fputc
-    printf4.o(i.__0printf$4) refers to printf4.o(i._printf_core) for _printf_core
-    printf4.o(i.__0printf$4) refers to msp432carmain.o(i.fputc) for fputc
-    printf4.o(i.__0printf$4) refers to stdout.o(.data) for __stdout
-    printf4.o(i.__0snprintf$4) refers to printf4.o(i._printf_core) for _printf_core
-    printf4.o(i.__0snprintf$4) refers to printf4.o(i._snputc) for _snputc
-    printf4.o(i.__0sprintf$4) refers to printf4.o(i._printf_core) for _printf_core
-    printf4.o(i.__0sprintf$4) refers to printf4.o(i._sputc) for _sputc
-    printf4.o(i.__0vfprintf$4) refers to printf4.o(i._printf_core) for _printf_core
-    printf4.o(i.__0vfprintf$4) refers to msp432carmain.o(i.fputc) for fputc
-    printf4.o(i.__0vprintf$4) refers to printf4.o(i._printf_core) for _printf_core
-    printf4.o(i.__0vprintf$4) refers to msp432carmain.o(i.fputc) for fputc
-    printf4.o(i.__0vprintf$4) refers to stdout.o(.data) for __stdout
-    printf4.o(i.__0vsnprintf$4) refers to printf4.o(i._printf_core) for _printf_core
-    printf4.o(i.__0vsnprintf$4) refers to printf4.o(i._snputc) for _snputc
-    printf4.o(i.__0vsprintf$4) refers to printf4.o(i._printf_core) for _printf_core
-    printf4.o(i.__0vsprintf$4) refers to printf4.o(i._sputc) for _sputc
-    printf4.o(i._printf_core) refers to uldiv.o(.text) for __aeabi_uldivmod
-    printf5.o(i.__0fprintf$5) refers to printf5.o(i._printf_core) for _printf_core
-    printf5.o(i.__0fprintf$5) refers to msp432carmain.o(i.fputc) for fputc
-    printf5.o(i.__0printf$5) refers to printf5.o(i._printf_core) for _printf_core
-    printf5.o(i.__0printf$5) refers to msp432carmain.o(i.fputc) for fputc
-    printf5.o(i.__0printf$5) refers to stdout.o(.data) for __stdout
-    printf5.o(i.__0snprintf$5) refers to printf5.o(i._printf_core) for _printf_core
-    printf5.o(i.__0snprintf$5) refers to printf5.o(i._snputc) for _snputc
-    printf5.o(i.__0sprintf$5) refers to printf5.o(i._printf_core) for _printf_core
-    printf5.o(i.__0sprintf$5) refers to printf5.o(i._sputc) for _sputc
-    printf5.o(i.__0vfprintf$5) refers to printf5.o(i._printf_core) for _printf_core
-    printf5.o(i.__0vfprintf$5) refers to msp432carmain.o(i.fputc) for fputc
-    printf5.o(i.__0vprintf$5) refers to printf5.o(i._printf_core) for _printf_core
-    printf5.o(i.__0vprintf$5) refers to msp432carmain.o(i.fputc) for fputc
-    printf5.o(i.__0vprintf$5) refers to stdout.o(.data) for __stdout
-    printf5.o(i.__0vsnprintf$5) refers to printf5.o(i._printf_core) for _printf_core
-    printf5.o(i.__0vsnprintf$5) refers to printf5.o(i._snputc) for _snputc
-    printf5.o(i.__0vsprintf$5) refers to printf5.o(i._printf_core) for _printf_core
-    printf5.o(i.__0vsprintf$5) refers to printf5.o(i._sputc) for _sputc
-    printf5.o(i._printf_core) refers to uldiv.o(.text) for __aeabi_uldivmod
-    printf6.o(i.__0fprintf$6) refers to printf6.o(i._printf_core) for _printf_core
-    printf6.o(i.__0fprintf$6) refers to msp432carmain.o(i.fputc) for fputc
-    printf6.o(i.__0printf$6) refers to printf6.o(i._printf_core) for _printf_core
-    printf6.o(i.__0printf$6) refers to msp432carmain.o(i.fputc) for fputc
-    printf6.o(i.__0printf$6) refers to stdout.o(.data) for __stdout
-    printf6.o(i.__0snprintf$6) refers to printf6.o(i._printf_core) for _printf_core
-    printf6.o(i.__0snprintf$6) refers to printf6.o(i._snputc) for _snputc
-    printf6.o(i.__0sprintf$6) refers to printf6.o(i._printf_core) for _printf_core
-    printf6.o(i.__0sprintf$6) refers to printf6.o(i._sputc) for _sputc
-    printf6.o(i.__0vfprintf$6) refers to printf6.o(i._printf_core) for _printf_core
-    printf6.o(i.__0vfprintf$6) refers to msp432carmain.o(i.fputc) for fputc
-    printf6.o(i.__0vprintf$6) refers to printf6.o(i._printf_core) for _printf_core
-    printf6.o(i.__0vprintf$6) refers to msp432carmain.o(i.fputc) for fputc
-    printf6.o(i.__0vprintf$6) refers to stdout.o(.data) for __stdout
-    printf6.o(i.__0vsnprintf$6) refers to printf6.o(i._printf_core) for _printf_core
-    printf6.o(i.__0vsnprintf$6) refers to printf6.o(i._snputc) for _snputc
-    printf6.o(i.__0vsprintf$6) refers to printf6.o(i._printf_core) for _printf_core
-    printf6.o(i.__0vsprintf$6) refers to printf6.o(i._sputc) for _sputc
-    printf6.o(i._printf_core) refers to printf6.o(i._printf_pre_padding) for _printf_pre_padding
-    printf6.o(i._printf_core) refers to uidiv.o(.text) for __aeabi_uidivmod
-    printf6.o(i._printf_core) refers to printf6.o(i._printf_post_padding) for _printf_post_padding
-    printf7.o(i.__0fprintf$7) refers to printf7.o(i._printf_core) for _printf_core
-    printf7.o(i.__0fprintf$7) refers to msp432carmain.o(i.fputc) for fputc
-    printf7.o(i.__0printf$7) refers to printf7.o(i._printf_core) for _printf_core
-    printf7.o(i.__0printf$7) refers to msp432carmain.o(i.fputc) for fputc
-    printf7.o(i.__0printf$7) refers to stdout.o(.data) for __stdout
-    printf7.o(i.__0snprintf$7) refers to printf7.o(i._printf_core) for _printf_core
-    printf7.o(i.__0snprintf$7) refers to printf7.o(i._snputc) for _snputc
-    printf7.o(i.__0sprintf$7) refers to printf7.o(i._printf_core) for _printf_core
-    printf7.o(i.__0sprintf$7) refers to printf7.o(i._sputc) for _sputc
-    printf7.o(i.__0vfprintf$7) refers to printf7.o(i._printf_core) for _printf_core
-    printf7.o(i.__0vfprintf$7) refers to msp432carmain.o(i.fputc) for fputc
-    printf7.o(i.__0vprintf$7) refers to printf7.o(i._printf_core) for _printf_core
-    printf7.o(i.__0vprintf$7) refers to msp432carmain.o(i.fputc) for fputc
-    printf7.o(i.__0vprintf$7) refers to stdout.o(.data) for __stdout
-    printf7.o(i.__0vsnprintf$7) refers to printf7.o(i._printf_core) for _printf_core
-    printf7.o(i.__0vsnprintf$7) refers to printf7.o(i._snputc) for _snputc
-    printf7.o(i.__0vsprintf$7) refers to printf7.o(i._printf_core) for _printf_core
-    printf7.o(i.__0vsprintf$7) refers to printf7.o(i._sputc) for _sputc
-    printf7.o(i._printf_core) refers to printf7.o(i._printf_pre_padding) for _printf_pre_padding
-    printf7.o(i._printf_core) refers to uldiv.o(.text) for __aeabi_uldivmod
-    printf7.o(i._printf_core) refers to printf7.o(i._printf_post_padding) for _printf_post_padding
-    printf8.o(i.__0fprintf$8) refers to printf8.o(i._printf_core) for _printf_core
-    printf8.o(i.__0fprintf$8) refers to msp432carmain.o(i.fputc) for fputc
-    printf8.o(i.__0printf$8) refers to printf8.o(i._printf_core) for _printf_core
-    printf8.o(i.__0printf$8) refers to msp432carmain.o(i.fputc) for fputc
-    printf8.o(i.__0printf$8) refers to stdout.o(.data) for __stdout
-    printf8.o(i.__0snprintf$8) refers to printf8.o(i._printf_core) for _printf_core
-    printf8.o(i.__0snprintf$8) refers to printf8.o(i._snputc) for _snputc
-    printf8.o(i.__0sprintf$8) refers to printf8.o(i._printf_core) for _printf_core
-    printf8.o(i.__0sprintf$8) refers to printf8.o(i._sputc) for _sputc
-    printf8.o(i.__0vfprintf$8) refers to printf8.o(i._printf_core) for _printf_core
-    printf8.o(i.__0vfprintf$8) refers to msp432carmain.o(i.fputc) for fputc
-    printf8.o(i.__0vprintf$8) refers to printf8.o(i._printf_core) for _printf_core
-    printf8.o(i.__0vprintf$8) refers to msp432carmain.o(i.fputc) for fputc
-    printf8.o(i.__0vprintf$8) refers to stdout.o(.data) for __stdout
-    printf8.o(i.__0vsnprintf$8) refers to printf8.o(i._printf_core) for _printf_core
-    printf8.o(i.__0vsnprintf$8) refers to printf8.o(i._snputc) for _snputc
-    printf8.o(i.__0vsprintf$8) refers to printf8.o(i._printf_core) for _printf_core
-    printf8.o(i.__0vsprintf$8) refers to printf8.o(i._sputc) for _sputc
-    printf8.o(i._printf_core) refers to printf8.o(i._printf_pre_padding) for _printf_pre_padding
-    printf8.o(i._printf_core) refers to uldiv.o(.text) for __aeabi_uldivmod
-    printf8.o(i._printf_core) refers to printf8.o(i._printf_post_padding) for _printf_post_padding
-    printfa.o(i.__0fprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i.__0fprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0fprintf) refers to msp432carmain.o(i.fputc) for fputc
-    printfa.o(i.__0printf) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i.__0printf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0printf) refers to msp432carmain.o(i.fputc) for fputc
-    printfa.o(i.__0printf) refers to stdout.o(.data) for __stdout
-    printfa.o(i.__0snprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i.__0snprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0snprintf) refers to printfa.o(i._snputc) for _snputc
-    printfa.o(i.__0sprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i.__0sprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0sprintf) refers to printfa.o(i._sputc) for _sputc
-    printfa.o(i.__0vfprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i.__0vfprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0vfprintf) refers to msp432carmain.o(i.fputc) for fputc
-    printfa.o(i.__0vprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i.__0vprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0vprintf) refers to msp432carmain.o(i.fputc) for fputc
-    printfa.o(i.__0vprintf) refers to stdout.o(.data) for __stdout
-    printfa.o(i.__0vsnprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i.__0vsnprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0vsnprintf) refers to printfa.o(i._snputc) for _snputc
-    printfa.o(i.__0vsprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i.__0vsprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0vsprintf) refers to printfa.o(i._sputc) for _sputc
-    printfa.o(i._fp_digits) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i._fp_digits) refers to dmul.o(.text) for __aeabi_dmul
-    printfa.o(i._fp_digits) refers to ddiv.o(.text) for __aeabi_ddiv
-    printfa.o(i._fp_digits) refers to cdrcmple.o(.text) for __aeabi_cdrcmple
-    printfa.o(i._fp_digits) refers to dadd.o(.text) for __aeabi_dadd
-    printfa.o(i._fp_digits) refers to dfixul.o(.text) for __aeabi_d2ulz
-    printfa.o(i._fp_digits) refers to uldiv.o(.text) for __aeabi_uldivmod
-    printfa.o(i._printf_core) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i._printf_core) refers to printfa.o(i._printf_pre_padding) for _printf_pre_padding
-    printfa.o(i._printf_core) refers to uldiv.o(.text) for __aeabi_uldivmod
-    printfa.o(i._printf_core) refers to printfa.o(i._printf_post_padding) for _printf_post_padding
-    printfa.o(i._printf_core) refers to printfa.o(i._fp_digits) for _fp_digits
-    printfa.o(i._printf_core) refers to uidiv.o(.text) for __aeabi_uidivmod
-    printfa.o(i._printf_post_padding) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i._printf_pre_padding) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i._snputc) refers (Special) to iusefp.o(.text) for __I$use$fp
-    printfa.o(i._sputc) refers (Special) to iusefp.o(.text) for __I$use$fp
     dadd.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     dadd.o(.text) refers to llsshr.o(.text) for __aeabi_lasr
@@ -408,12 +186,8 @@ Section Cross References
     entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
     entry9a.o(.ARM.Collect$$$$0000000B) refers to msp432carmain.o(i.main) for main
     entry9b.o(.ARM.Collect$$$$0000000C) refers to msp432carmain.o(i.main) for main
-    uldiv.o(.text) refers to llushr.o(.text) for __aeabi_llsr
-    uldiv.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
-    dfixul.o(.text) refers to llushr.o(.text) for __aeabi_llsr
-    dfixul.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
 
 
@@ -424,6 +198,7 @@ Removing Unused input sections from the image.
     Removing msp432carmain.o(.rev16_text), (4 bytes).
     Removing msp432carmain.o(.revsh_text), (4 bytes).
     Removing msp432carmain.o(.rrx_text), (6 bytes).
+    Removing msp432carmain.o(i.fputc), (16 bytes).
     Removing delay.o(.rev16_text), (4 bytes).
     Removing delay.o(.revsh_text), (4 bytes).
     Removing delay.o(.rrx_text), (6 bytes).
@@ -437,6 +212,11 @@ Removing Unused input sections from the image.
     Removing tima.o(.revsh_text), (4 bytes).
     Removing tima.o(.rrx_text), (6 bytes).
     Removing tima.o(i.TimA1_4_PWM_stop), (6 bytes).
+    Removing tima.o(i.i2c_init), (160 bytes).
+    Removing tima.o(.bss), (32 bytes).
+    Removing tima.o(.bss), (10 bytes).
+    Removing tima.o(.constdata), (13 bytes).
+    Removing tima.o(.constdata), (20 bytes).
     Removing tima.o(.data), (4 bytes).
     Removing startup_msp432p401r_uvision.o(HEAP), (0 bytes).
     Removing system_msp432p401r.o(.rev16_text), (4 bytes).
@@ -535,6 +315,7 @@ Removing Unused input sections from the image.
     Removing uart.o(i.UART_setDormant), (12 bytes).
     Removing uart.o(i.UART_transmitAddress), (14 bytes).
     Removing uart.o(i.UART_transmitBreak), (48 bytes).
+    Removing uart.o(i.UART_transmitData), (24 bytes).
     Removing uart.o(i.UART_unregisterInterrupt), (96 bytes).
     Removing wdt_a.o(.rev16_text), (4 bytes).
     Removing wdt_a.o(.revsh_text), (4 bytes).
@@ -567,10 +348,8 @@ Removing Unused input sections from the image.
     Removing sysctl.o(i.SysCtl_rebootDevice), (16 bytes).
     Removing sysctl.o(i.SysCtl_setWDTPasswordViolationResetType), (24 bytes).
     Removing sysctl.o(i.SysCtl_setWDTTimeoutResetType), (24 bytes).
-    Removing dfixul.o(.text), (48 bytes).
-    Removing cdrcmple.o(.text), (48 bytes).
 
-148 unused section(s) (total 4888 bytes) removed from the image.
+153 unused section(s) (total 5067 bytes) removed from the image.
 
 ==============================================================================
 
@@ -581,45 +360,29 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      324  startup_msp432p401r_uvision.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
-    ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixui.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     ..\Msp432CarMain.c                       0x00000000   Number         0  msp432carmain.o ABSOLUTE
@@ -636,7 +399,6 @@ Image Symbol Table
     RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s 0x00000000   Number         0  startup_msp432p401r_uvision.o ABSOLUTE
     RTE\Device\MSP432P401R\system_msp432p401r.c 0x00000000   Number         0  system_msp432p401r.o ABSOLUTE
     RTE\\Device\\MSP432P401R\\system_msp432p401r.c 0x00000000   Number         0  system_msp432p401r.o ABSOLUTE
-    cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
     cpu.c                                    0x00000000   Number         0  cpu.o ABSOLUTE
     cpu.c                                    0x00000000   Number         0  cpu.o ABSOLUTE
     cs.c                                     0x00000000   Number         0  cs.o ABSOLUTE
@@ -674,77 +436,76 @@ Image Symbol Table
     .text                                    0x000003da   Section        0  ddiv.o(.text)
     .text                                    0x000004b8   Section        0  dflti.o(.text)
     .text                                    0x000004da   Section        0  dfixui.o(.text)
-    .text                                    0x0000050c   Section        0  uidiv.o(.text)
-    .text                                    0x00000538   Section        0  llshl.o(.text)
-    .text                                    0x00000556   Section        0  llushr.o(.text)
-    .text                                    0x00000576   Section        0  llsshr.o(.text)
-    .text                                    0x0000059a   Section        0  iusefp.o(.text)
-    .text                                    0x0000059a   Section        0  depilogue.o(.text)
-    .text                                    0x00000654   Section       36  init.o(.text)
-    i.CS_getDCOFrequency                     0x00000678   Section        0  cs.o(i.CS_getDCOFrequency)
-    i.CS_getMCLK                             0x000007e8   Section        0  cs.o(i.CS_getMCLK)
-    i.CS_setExternalClockSourceFrequency     0x00000800   Section        0  cs.o(i.CS_setExternalClockSourceFrequency)
-    i.CS_startHFXT                           0x0000080c   Section        0  cs.o(i.CS_startHFXT)
-    i.CS_startHFXTWithTimeout                0x00000814   Section        0  cs.o(i.CS_startHFXTWithTimeout)
-    i.CS_startLFXT                           0x00000958   Section        0  cs.o(i.CS_startLFXT)
-    i.CS_startLFXTWithTimeout                0x00000960   Section        0  cs.o(i.CS_startLFXTWithTimeout)
-    i.GPIO_getInputPinValue                  0x00000a14   Section        0  gpio.o(i.GPIO_getInputPinValue)
-    i.GPIO_setAsInputPin                     0x00000a28   Section        0  gpio.o(i.GPIO_setAsInputPin)
-    i.GPIO_setAsInputPinWithPullUpResistor   0x00000a50   Section        0  gpio.o(i.GPIO_setAsInputPinWithPullUpResistor)
-    i.GPIO_setAsOutputPin                    0x00000a7c   Section        0  gpio.o(i.GPIO_setAsOutputPin)
-    i.GPIO_setOutputHighOnPin                0x00000a9c   Section        0  gpio.o(i.GPIO_setOutputHighOnPin)
-    i.GPIO_setOutputLowOnPin                 0x00000ab0   Section        0  gpio.o(i.GPIO_setOutputLowOnPin)
-    i.Interrupt_enableMaster                 0x00000ac4   Section        0  interrupt.o(i.Interrupt_enableMaster)
-    i.PID_Init                               0x00000ad4   Section        0  pid.o(i.PID_Init)
-    i.PID_Update                             0x00000af4   Section        0  pid.o(i.PID_Update)
-    i.SysCtl_disableNMISource                0x00000bc0   Section        0  sysctl.o(i.SysCtl_disableNMISource)
-    i.SysCtl_enableNMISource                 0x00000bd0   Section        0  sysctl.o(i.SysCtl_enableNMISource)
-    i.SysCtl_getNMISourceStatus              0x00000be0   Section        0  sysctl.o(i.SysCtl_getNMISourceStatus)
-    i.SysCtl_getTLVInfo                      0x00000bec   Section        0  sysctl.o(i.SysCtl_getTLVInfo)
-    i.SysInit                                0x00000c3c   Section        0  sysinit.o(i.SysInit)
-    i.SystemInit                             0x00000cc8   Section        0  system_msp432p401r.o(i.SystemInit)
-    i.TA2_0_IRQHandler                       0x00000d44   Section        0  tima.o(i.TA2_0_IRQHandler)
-    i.TimA0_4_PWM_Init                       0x00000d9c   Section        0  tima.o(i.TimA0_4_PWM_Init)
-    i.TimA0_4_PWM_set_duty                   0x00000db0   Section        0  tima.o(i.TimA0_4_PWM_set_duty)
-    i.TimA0_4_PWM_stop                       0x00000e0c   Section        0  tima.o(i.TimA0_4_PWM_stop)
-    i.TimA1_4_PWM_Init                       0x00000e14   Section        0  tima.o(i.TimA1_4_PWM_Init)
-    i.TimA1_4_PWM_set_angle                  0x00000e44   Section        0  tima.o(i.TimA1_4_PWM_set_angle)
-    i.TimA2_Int_Init                         0x00000ec8   Section        0  tima.o(i.TimA2_Int_Init)
-    i.UART_transmitData                      0x00000f28   Section        0  uart.o(i.UART_transmitData)
-    i.WDT_A_holdTimer                        0x00000f40   Section        0  wdt_a.o(i.WDT_A_holdTimer)
-    i._CSComputeCLKFrequency                 0x00000f58   Section        0  cs.o(i._CSComputeCLKFrequency)
-    _CSComputeCLKFrequency                   0x00000f59   Thumb Code   236  cs.o(i._CSComputeCLKFrequency)
-    i.__0printf$1                            0x00001064   Section        0  printf1.o(i.__0printf$1)
-    i.__scatterload_copy                     0x00001084   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00001092   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00001094   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x000010a4   Section        0  printf1.o(i._printf_core)
-    _printf_core                             0x000010a5   Thumb Code   336  printf1.o(i._printf_core)
-    i.delay_init                             0x000011f8   Section        0  delay.o(i.delay_init)
-    i.delay_ms                               0x00001220   Section        0  delay.o(i.delay_ms)
-    i.delay_us                               0x00001238   Section        0  delay.o(i.delay_us)
-    i.fputc                                  0x0000126c   Section        0  msp432carmain.o(i.fputc)
-    i.key_Init                               0x0000127c   Section        0  key.o(i.key_Init)
-    i.key_Value                              0x00001284   Section        0  key.o(i.key_Value)
-    i.main                                   0x000012b4   Section        0  msp432carmain.o(i.main)
-    i.motor_pinint                           0x00001394   Section        0  msp432carmain.o(i.motor_pinint)
-    i.read_sensor_values                     0x0000139c   Section        0  tima.o(i.read_sensor_values)
-    i.start                                  0x0000153c   Section        0  msp432carmain.o(i.start)
-    i.stop                                   0x00001558   Section        0  msp432carmain.o(i.stop)
-    .constdata                               0x00001574   Section       36  msp432carmain.o(.constdata)
+    .text                                    0x0000050c   Section        0  llshl.o(.text)
+    .text                                    0x0000052a   Section        0  llushr.o(.text)
+    .text                                    0x0000054a   Section        0  llsshr.o(.text)
+    .text                                    0x0000056e   Section        0  depilogue.o(.text)
+    .text                                    0x0000056e   Section        0  iusefp.o(.text)
+    .text                                    0x00000628   Section       36  init.o(.text)
+    i.CS_getDCOFrequency                     0x0000064c   Section        0  cs.o(i.CS_getDCOFrequency)
+    i.CS_getMCLK                             0x000007bc   Section        0  cs.o(i.CS_getMCLK)
+    i.CS_setExternalClockSourceFrequency     0x000007d4   Section        0  cs.o(i.CS_setExternalClockSourceFrequency)
+    i.CS_startHFXT                           0x000007e0   Section        0  cs.o(i.CS_startHFXT)
+    i.CS_startHFXTWithTimeout                0x000007e8   Section        0  cs.o(i.CS_startHFXTWithTimeout)
+    i.CS_startLFXT                           0x0000092c   Section        0  cs.o(i.CS_startLFXT)
+    i.CS_startLFXTWithTimeout                0x00000934   Section        0  cs.o(i.CS_startLFXTWithTimeout)
+    i.Distance                               0x000009e8   Section        0  tima.o(i.Distance)
+    i.EUSCIB0_IRQHandler                     0x00000a68   Section        0  tima.o(i.EUSCIB0_IRQHandler)
+    i.GPIO_getInputPinValue                  0x00000ac0   Section        0  gpio.o(i.GPIO_getInputPinValue)
+    i.GPIO_setAsInputPin                     0x00000ad4   Section        0  gpio.o(i.GPIO_setAsInputPin)
+    i.GPIO_setAsInputPinWithPullUpResistor   0x00000afc   Section        0  gpio.o(i.GPIO_setAsInputPinWithPullUpResistor)
+    i.GPIO_setAsOutputPin                    0x00000b28   Section        0  gpio.o(i.GPIO_setAsOutputPin)
+    i.GPIO_setOutputHighOnPin                0x00000b48   Section        0  gpio.o(i.GPIO_setOutputHighOnPin)
+    i.GPIO_setOutputLowOnPin                 0x00000b5c   Section        0  gpio.o(i.GPIO_setOutputLowOnPin)
+    i.HCSR04Init                             0x00000b70   Section        0  tima.o(i.HCSR04Init)
+    i.Interrupt_enableMaster                 0x00000bb0   Section        0  interrupt.o(i.Interrupt_enableMaster)
+    i.PID_Init                               0x00000bc0   Section        0  pid.o(i.PID_Init)
+    i.PID_Update                             0x00000be0   Section        0  pid.o(i.PID_Update)
+    i.SysCtl_disableNMISource                0x00000cac   Section        0  sysctl.o(i.SysCtl_disableNMISource)
+    i.SysCtl_enableNMISource                 0x00000cbc   Section        0  sysctl.o(i.SysCtl_enableNMISource)
+    i.SysCtl_getNMISourceStatus              0x00000ccc   Section        0  sysctl.o(i.SysCtl_getNMISourceStatus)
+    i.SysCtl_getTLVInfo                      0x00000cd8   Section        0  sysctl.o(i.SysCtl_getTLVInfo)
+    i.SysInit                                0x00000d28   Section        0  sysinit.o(i.SysInit)
+    i.SystemInit                             0x00000db4   Section        0  system_msp432p401r.o(i.SystemInit)
+    i.TA2_0_IRQHandler                       0x00000e30   Section        0  tima.o(i.TA2_0_IRQHandler)
+    i.TimA0_4_PWM_Init                       0x00000ec8   Section        0  tima.o(i.TimA0_4_PWM_Init)
+    i.TimA0_4_PWM_set_duty                   0x00000edc   Section        0  tima.o(i.TimA0_4_PWM_set_duty)
+    i.TimA0_4_PWM_stop                       0x00000f38   Section        0  tima.o(i.TimA0_4_PWM_stop)
+    i.TimA1_4_PWM_Init                       0x00000f40   Section        0  tima.o(i.TimA1_4_PWM_Init)
+    i.TimA1_4_PWM_set_angle                  0x00000f70   Section        0  tima.o(i.TimA1_4_PWM_set_angle)
+    i.TimA2_Int_Init                         0x00000ff4   Section        0  tima.o(i.TimA2_Int_Init)
+    i.WDT_A_holdTimer                        0x00001064   Section        0  wdt_a.o(i.WDT_A_holdTimer)
+    i._CSComputeCLKFrequency                 0x0000107c   Section        0  cs.o(i._CSComputeCLKFrequency)
+    _CSComputeCLKFrequency                   0x0000107d   Thumb Code   236  cs.o(i._CSComputeCLKFrequency)
+    i.__scatterload_copy                     0x00001188   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00001196   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00001198   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.delay_init                             0x000011a8   Section        0  delay.o(i.delay_init)
+    i.delay_ms                               0x000011d0   Section        0  delay.o(i.delay_ms)
+    i.delay_us                               0x000011e8   Section        0  delay.o(i.delay_us)
+    i.key_Init                               0x0000121c   Section        0  key.o(i.key_Init)
+    i.key_Value                              0x00001224   Section        0  key.o(i.key_Value)
+    i.main                                   0x00001254   Section        0  msp432carmain.o(i.main)
+    i.motor_pinint                           0x00001334   Section        0  msp432carmain.o(i.motor_pinint)
+    i.read_sensor_values                     0x0000133c   Section        0  tima.o(i.read_sensor_values)
+    i.read_us_values                         0x0000147c   Section        0  tima.o(i.read_us_values)
+    i.start                                  0x00001490   Section        0  msp432carmain.o(i.start)
+    i.stop                                   0x000014ac   Section        0  msp432carmain.o(i.stop)
+    .constdata                               0x000014c8   Section       36  msp432carmain.o(.constdata)
     .data                                    0x20000000   Section        1  delay.o(.data)
     fac_us                                   0x20000000   Data           1  delay.o(.data)
-    .data                                    0x20000004   Section      108  tima.o(.data)
-    TimA1_4_PWMConfig                        0x20000040   Data          24  tima.o(.data)
-    TimA0_4_PWMConfig                        0x20000058   Data          24  tima.o(.data)
-    .data                                    0x20000070   Section        8  cs.o(.data)
-    hfxtFreq                                 0x20000070   Data           4  cs.o(.data)
-    lfxtFreq                                 0x20000074   Data           4  cs.o(.data)
-    .data                                    0x20000078   Section       48  gpio.o(.data)
-    GPIO_PORT_TO_BASE                        0x20000078   Data          48  gpio.o(.data)
-    .data                                    0x200000a8   Section        4  stdout.o(.data)
-    .bss                                     0x200000ac   Section       32  tima.o(.bss)
-    STACK                                    0x200000d0   Section      512  startup_msp432p401r_uvision.o(STACK)
+    .data                                    0x20000004   Section      176  tima.o(.data)
+    TXByteCtr                                0x20000004   Data           1  tima.o(.data)
+    stopSent                                 0x20000005   Data           1  tima.o(.data)
+    usValue                                  0x2000000c   Data           4  tima.o(.data)
+    TimA1_4_PWMConfig                        0x20000084   Data          24  tima.o(.data)
+    TimA0_4_PWMConfig                        0x2000009c   Data          24  tima.o(.data)
+    .data                                    0x200000b4   Section        8  cs.o(.data)
+    hfxtFreq                                 0x200000b4   Data           4  cs.o(.data)
+    lfxtFreq                                 0x200000b8   Data           4  cs.o(.data)
+    .data                                    0x200000bc   Section       48  gpio.o(.data)
+    GPIO_PORT_TO_BASE                        0x200000bc   Data          48  gpio.o(.data)
+    STACK                                    0x200000f0   Section      512  startup_msp432p401r_uvision.o(STACK)
 
     Global Symbols
 
@@ -753,47 +514,6 @@ Image Symbol Table
     BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __ARM_use_no_argv                        0x00000000   Number         0  msp432carmain.o ABSOLUTE
     __Vectors                                0x00000000   Data           4  startup_msp432p401r_uvision.o(RESET)
-    _printf_a                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_c                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_charcount                        0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_d                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_e                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_f                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_flags                            0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_fp_dec                           0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_fp_hex                           0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_g                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_i                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_int_dec                          0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_l                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_lc                               0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_ll                               0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_lld                              0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_lli                              0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_llo                              0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_llu                              0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_llx                              0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_longlong_dec                     0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_longlong_hex                     0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_longlong_oct                     0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_ls                               0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_mbtowc                           0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_n                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_o                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_p                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_percent                          0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_pre_padding                      0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_return_value                     0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_s                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_sizespec                         0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_str                              0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_truncate_signed                  0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_truncate_unsigned                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_u                                0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_wc                               0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_wctomb                           0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_widthprec                        0x00000000   Number         0  stubs.o ABSOLUTE
-    _printf_x                                0x00000000   Number         0  stubs.o ABSOLUTE
     __arm_fini_                               - Undefined Weak Reference
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
@@ -842,7 +562,6 @@ Image Symbol Table
     EUSCIA1_IRQHandler                       0x0000019f   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     EUSCIA2_IRQHandler                       0x0000019f   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     EUSCIA3_IRQHandler                       0x0000019f   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIB0_IRQHandler                       0x0000019f   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     EUSCIB1_IRQHandler                       0x0000019f   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     EUSCIB2_IRQHandler                       0x0000019f   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     EUSCIB3_IRQHandler                       0x0000019f   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
@@ -875,75 +594,72 @@ Image Symbol Table
     __aeabi_ddiv                             0x000003db   Thumb Code   222  ddiv.o(.text)
     __aeabi_i2d                              0x000004b9   Thumb Code    34  dflti.o(.text)
     __aeabi_d2uiz                            0x000004db   Thumb Code    50  dfixui.o(.text)
-    __aeabi_uidiv                            0x0000050d   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x0000050d   Thumb Code    44  uidiv.o(.text)
-    __aeabi_llsl                             0x00000539   Thumb Code    30  llshl.o(.text)
-    _ll_shift_l                              0x00000539   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x00000557   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x00000557   Thumb Code     0  llushr.o(.text)
-    __aeabi_lasr                             0x00000577   Thumb Code    36  llsshr.o(.text)
-    _ll_sshift_r                             0x00000577   Thumb Code     0  llsshr.o(.text)
-    __I$use$fp                               0x0000059b   Thumb Code     0  iusefp.o(.text)
-    _double_round                            0x0000059b   Thumb Code    30  depilogue.o(.text)
-    _double_epilogue                         0x000005b9   Thumb Code   156  depilogue.o(.text)
-    __scatterload                            0x00000655   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00000655   Thumb Code     0  init.o(.text)
-    CS_getDCOFrequency                       0x00000679   Thumb Code   332  cs.o(i.CS_getDCOFrequency)
-    CS_getMCLK                               0x000007e9   Thumb Code    20  cs.o(i.CS_getMCLK)
-    CS_setExternalClockSourceFrequency       0x00000801   Thumb Code     8  cs.o(i.CS_setExternalClockSourceFrequency)
-    CS_startHFXT                             0x0000080d   Thumb Code     6  cs.o(i.CS_startHFXT)
-    CS_startHFXTWithTimeout                  0x00000815   Thumb Code   262  cs.o(i.CS_startHFXTWithTimeout)
-    CS_startLFXT                             0x00000959   Thumb Code     6  cs.o(i.CS_startLFXT)
-    CS_startLFXTWithTimeout                  0x00000961   Thumb Code   158  cs.o(i.CS_startLFXTWithTimeout)
-    GPIO_getInputPinValue                    0x00000a15   Thumb Code    16  gpio.o(i.GPIO_getInputPinValue)
-    GPIO_setAsInputPin                       0x00000a29   Thumb Code    34  gpio.o(i.GPIO_setAsInputPin)
-    GPIO_setAsInputPinWithPullUpResistor     0x00000a51   Thumb Code    38  gpio.o(i.GPIO_setAsInputPinWithPullUpResistor)
-    GPIO_setAsOutputPin                      0x00000a7d   Thumb Code    26  gpio.o(i.GPIO_setAsOutputPin)
-    GPIO_setOutputHighOnPin                  0x00000a9d   Thumb Code    14  gpio.o(i.GPIO_setOutputHighOnPin)
-    GPIO_setOutputLowOnPin                   0x00000ab1   Thumb Code    16  gpio.o(i.GPIO_setOutputLowOnPin)
-    Interrupt_enableMaster                   0x00000ac5   Thumb Code    14  interrupt.o(i.Interrupt_enableMaster)
-    PID_Init                                 0x00000ad5   Thumb Code    26  pid.o(i.PID_Init)
-    PID_Update                               0x00000af5   Thumb Code   202  pid.o(i.PID_Update)
-    SysCtl_disableNMISource                  0x00000bc1   Thumb Code    12  sysctl.o(i.SysCtl_disableNMISource)
-    SysCtl_enableNMISource                   0x00000bd1   Thumb Code    10  sysctl.o(i.SysCtl_enableNMISource)
-    SysCtl_getNMISourceStatus                0x00000be1   Thumb Code     6  sysctl.o(i.SysCtl_getNMISourceStatus)
-    SysCtl_getTLVInfo                        0x00000bed   Thumb Code    72  sysctl.o(i.SysCtl_getTLVInfo)
-    SysInit                                  0x00000c3d   Thumb Code   126  sysinit.o(i.SysInit)
-    SystemInit                               0x00000cc9   Thumb Code    90  system_msp432p401r.o(i.SystemInit)
-    TA2_0_IRQHandler                         0x00000d45   Thumb Code    66  tima.o(i.TA2_0_IRQHandler)
-    TimA0_4_PWM_Init                         0x00000d9d   Thumb Code    14  tima.o(i.TimA0_4_PWM_Init)
-    TimA0_4_PWM_set_duty                     0x00000db1   Thumb Code    66  tima.o(i.TimA0_4_PWM_set_duty)
-    TimA0_4_PWM_stop                         0x00000e0d   Thumb Code     6  tima.o(i.TimA0_4_PWM_stop)
-    TimA1_4_PWM_Init                         0x00000e15   Thumb Code    34  tima.o(i.TimA1_4_PWM_Init)
-    TimA1_4_PWM_set_angle                    0x00000e45   Thumb Code    88  tima.o(i.TimA1_4_PWM_set_angle)
-    TimA2_Int_Init                           0x00000ec9   Thumb Code    82  tima.o(i.TimA2_Int_Init)
-    UART_transmitData                        0x00000f29   Thumb Code    24  uart.o(i.UART_transmitData)
-    WDT_A_holdTimer                          0x00000f41   Thumb Code    18  wdt_a.o(i.WDT_A_holdTimer)
-    __0printf$1                              0x00001065   Thumb Code    22  printf1.o(i.__0printf$1)
-    __1printf$1                              0x00001065   Thumb Code     0  printf1.o(i.__0printf$1)
-    __2printf                                0x00001065   Thumb Code     0  printf1.o(i.__0printf$1)
-    __scatterload_copy                       0x00001085   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00001093   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00001095   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    delay_init                               0x000011f9   Thumb Code    30  delay.o(i.delay_init)
-    delay_ms                                 0x00001221   Thumb Code    24  delay.o(i.delay_ms)
-    delay_us                                 0x00001239   Thumb Code    46  delay.o(i.delay_us)
-    fputc                                    0x0000126d   Thumb Code    12  msp432carmain.o(i.fputc)
-    key_Init                                 0x0000127d   Thumb Code     8  key.o(i.key_Init)
-    key_Value                                0x00001285   Thumb Code    46  key.o(i.key_Value)
-    main                                     0x000012b5   Thumb Code   212  msp432carmain.o(i.main)
-    motor_pinint                             0x00001395   Thumb Code     8  msp432carmain.o(i.motor_pinint)
-    read_sensor_values                       0x0000139d   Thumb Code   380  tima.o(i.read_sensor_values)
-    start                                    0x0000153d   Thumb Code    28  msp432carmain.o(i.start)
-    stop                                     0x00001559   Thumb Code    26  msp432carmain.o(i.stop)
-    uartConfig                               0x00001574   Data          36  msp432carmain.o(.constdata)
-    Region$$Table$$Base                      0x00001598   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000015b8   Number         0  anon$$obj.o(Region$$Table)
-    measureValue                             0x20000004   Data           4  tima.o(.data)
-    trackPid                                 0x20000008   Data          56  tima.o(.data)
-    __stdout                                 0x200000a8   Data           4  stdout.o(.data)
-    sensor                                   0x200000ac   Data          32  tima.o(.bss)
-    __initial_sp                             0x200002d0   Data           0  startup_msp432p401r_uvision.o(STACK)
+    __aeabi_llsl                             0x0000050d   Thumb Code    30  llshl.o(.text)
+    _ll_shift_l                              0x0000050d   Thumb Code     0  llshl.o(.text)
+    __aeabi_llsr                             0x0000052b   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x0000052b   Thumb Code     0  llushr.o(.text)
+    __aeabi_lasr                             0x0000054b   Thumb Code    36  llsshr.o(.text)
+    _ll_sshift_r                             0x0000054b   Thumb Code     0  llsshr.o(.text)
+    __I$use$fp                               0x0000056f   Thumb Code     0  iusefp.o(.text)
+    _double_round                            0x0000056f   Thumb Code    30  depilogue.o(.text)
+    _double_epilogue                         0x0000058d   Thumb Code   156  depilogue.o(.text)
+    __scatterload                            0x00000629   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000629   Thumb Code     0  init.o(.text)
+    CS_getDCOFrequency                       0x0000064d   Thumb Code   332  cs.o(i.CS_getDCOFrequency)
+    CS_getMCLK                               0x000007bd   Thumb Code    20  cs.o(i.CS_getMCLK)
+    CS_setExternalClockSourceFrequency       0x000007d5   Thumb Code     8  cs.o(i.CS_setExternalClockSourceFrequency)
+    CS_startHFXT                             0x000007e1   Thumb Code     6  cs.o(i.CS_startHFXT)
+    CS_startHFXTWithTimeout                  0x000007e9   Thumb Code   262  cs.o(i.CS_startHFXTWithTimeout)
+    CS_startLFXT                             0x0000092d   Thumb Code     6  cs.o(i.CS_startLFXT)
+    CS_startLFXTWithTimeout                  0x00000935   Thumb Code   158  cs.o(i.CS_startLFXTWithTimeout)
+    Distance                                 0x000009e9   Thumb Code   112  tima.o(i.Distance)
+    EUSCIB0_IRQHandler                       0x00000a69   Thumb Code    74  tima.o(i.EUSCIB0_IRQHandler)
+    GPIO_getInputPinValue                    0x00000ac1   Thumb Code    16  gpio.o(i.GPIO_getInputPinValue)
+    GPIO_setAsInputPin                       0x00000ad5   Thumb Code    34  gpio.o(i.GPIO_setAsInputPin)
+    GPIO_setAsInputPinWithPullUpResistor     0x00000afd   Thumb Code    38  gpio.o(i.GPIO_setAsInputPinWithPullUpResistor)
+    GPIO_setAsOutputPin                      0x00000b29   Thumb Code    26  gpio.o(i.GPIO_setAsOutputPin)
+    GPIO_setOutputHighOnPin                  0x00000b49   Thumb Code    14  gpio.o(i.GPIO_setOutputHighOnPin)
+    GPIO_setOutputLowOnPin                   0x00000b5d   Thumb Code    16  gpio.o(i.GPIO_setOutputLowOnPin)
+    HCSR04Init                               0x00000b71   Thumb Code    58  tima.o(i.HCSR04Init)
+    Interrupt_enableMaster                   0x00000bb1   Thumb Code    14  interrupt.o(i.Interrupt_enableMaster)
+    PID_Init                                 0x00000bc1   Thumb Code    26  pid.o(i.PID_Init)
+    PID_Update                               0x00000be1   Thumb Code   202  pid.o(i.PID_Update)
+    SysCtl_disableNMISource                  0x00000cad   Thumb Code    12  sysctl.o(i.SysCtl_disableNMISource)
+    SysCtl_enableNMISource                   0x00000cbd   Thumb Code    10  sysctl.o(i.SysCtl_enableNMISource)
+    SysCtl_getNMISourceStatus                0x00000ccd   Thumb Code     6  sysctl.o(i.SysCtl_getNMISourceStatus)
+    SysCtl_getTLVInfo                        0x00000cd9   Thumb Code    72  sysctl.o(i.SysCtl_getTLVInfo)
+    SysInit                                  0x00000d29   Thumb Code   126  sysinit.o(i.SysInit)
+    SystemInit                               0x00000db5   Thumb Code    90  system_msp432p401r.o(i.SystemInit)
+    TA2_0_IRQHandler                         0x00000e31   Thumb Code   126  tima.o(i.TA2_0_IRQHandler)
+    TimA0_4_PWM_Init                         0x00000ec9   Thumb Code    14  tima.o(i.TimA0_4_PWM_Init)
+    TimA0_4_PWM_set_duty                     0x00000edd   Thumb Code    66  tima.o(i.TimA0_4_PWM_set_duty)
+    TimA0_4_PWM_stop                         0x00000f39   Thumb Code     6  tima.o(i.TimA0_4_PWM_stop)
+    TimA1_4_PWM_Init                         0x00000f41   Thumb Code    34  tima.o(i.TimA1_4_PWM_Init)
+    TimA1_4_PWM_set_angle                    0x00000f71   Thumb Code    88  tima.o(i.TimA1_4_PWM_set_angle)
+    TimA2_Int_Init                           0x00000ff5   Thumb Code   100  tima.o(i.TimA2_Int_Init)
+    WDT_A_holdTimer                          0x00001065   Thumb Code    18  wdt_a.o(i.WDT_A_holdTimer)
+    __scatterload_copy                       0x00001189   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00001197   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00001199   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    delay_init                               0x000011a9   Thumb Code    30  delay.o(i.delay_init)
+    delay_ms                                 0x000011d1   Thumb Code    24  delay.o(i.delay_ms)
+    delay_us                                 0x000011e9   Thumb Code    46  delay.o(i.delay_us)
+    key_Init                                 0x0000121d   Thumb Code     8  key.o(i.key_Init)
+    key_Value                                0x00001225   Thumb Code    46  key.o(i.key_Value)
+    main                                     0x00001255   Thumb Code   212  msp432carmain.o(i.main)
+    motor_pinint                             0x00001335   Thumb Code     8  msp432carmain.o(i.motor_pinint)
+    read_sensor_values                       0x0000133d   Thumb Code   294  tima.o(i.read_sensor_values)
+    read_us_values                           0x0000147d   Thumb Code    14  tima.o(i.read_us_values)
+    start                                    0x00001491   Thumb Code    28  msp432carmain.o(i.start)
+    stop                                     0x000014ad   Thumb Code    26  msp432carmain.o(i.stop)
+    uartConfig                               0x000014c8   Data          36  msp432carmain.o(.constdata)
+    Region$$Table$$Base                      0x000014ec   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0000150c   Number         0  anon$$obj.o(Region$$Table)
+    measureValue                             0x20000008   Data           4  tima.o(.data)
+    CCR0                                     0x20000010   Data           4  tima.o(.data)
+    trackPid                                 0x20000014   Data          56  tima.o(.data)
+    trackPid_DC                              0x2000004c   Data          56  tima.o(.data)
+    __initial_sp                             0x200002f0   Data           0  startup_msp432p401r_uvision.o(STACK)
 
 
 
@@ -953,111 +669,108 @@ Memory Map of the image
 
   Image Entry point : 0x00000145
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00001664, Max: 0x00040000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000015f8, Max: 0x00040000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000015b8, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000150c, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x00000144   Data   RO          397    RESET               startup_msp432p401r_uvision.o
-    0x00000144   0x00000144   0x00000000   Code   RO          727  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000144   0x00000144   0x00000004   Code   RO         1001    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000148   0x00000148   0x00000004   Code   RO         1004    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000014c   0x0000014c   0x00000000   Code   RO         1006    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000014c   0x0000014c   0x00000000   Code   RO         1008    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000014c   0x0000014c   0x00000008   Code   RO         1009    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000154   0x00000154   0x00000004   Code   RO         1016    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
-    0x00000158   0x00000158   0x00000000   Code   RO         1011    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
-    0x00000158   0x00000158   0x00000000   Code   RO         1013    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
-    0x00000158   0x00000158   0x00000004   Code   RO         1002    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x0000015c   0x0000015c   0x00000026   Code   RO          680    .emb_text           msp432p4xx_driverlib.lib(cpu.o)
+    0x00000000   0x00000000   0x00000144   Data   RO          433    RESET               startup_msp432p401r_uvision.o
+    0x00000144   0x00000144   0x00000000   Code   RO          763  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000144   0x00000144   0x00000004   Code   RO          776    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000148   0x00000148   0x00000004   Code   RO          779    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000014c   0x0000014c   0x00000000   Code   RO          781    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000014c   0x0000014c   0x00000000   Code   RO          783    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000014c   0x0000014c   0x00000008   Code   RO          784    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000154   0x00000154   0x00000004   Code   RO          791    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
+    0x00000158   0x00000158   0x00000000   Code   RO          786    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
+    0x00000158   0x00000158   0x00000000   Code   RO          788    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
+    0x00000158   0x00000158   0x00000004   Code   RO          777    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x0000015c   0x0000015c   0x00000026   Code   RO          716    .emb_text           msp432p4xx_driverlib.lib(cpu.o)
     0x00000182   0x00000182   0x00000002   PAD
-    0x00000184   0x00000184   0x00000024   Code   RO          398    .text               startup_msp432p401r_uvision.o
-    0x000001a8   0x000001a8   0x0000014e   Code   RO          991    .text               mf_w.l(dadd.o)
-    0x000002f6   0x000002f6   0x000000e4   Code   RO          993    .text               mf_w.l(dmul.o)
-    0x000003da   0x000003da   0x000000de   Code   RO          995    .text               mf_w.l(ddiv.o)
-    0x000004b8   0x000004b8   0x00000022   Code   RO          997    .text               mf_w.l(dflti.o)
-    0x000004da   0x000004da   0x00000032   Code   RO          999    .text               mf_w.l(dfixui.o)
-    0x0000050c   0x0000050c   0x0000002c   Code   RO         1018    .text               mc_w.l(uidiv.o)
-    0x00000538   0x00000538   0x0000001e   Code   RO         1022    .text               mc_w.l(llshl.o)
-    0x00000556   0x00000556   0x00000020   Code   RO         1024    .text               mc_w.l(llushr.o)
-    0x00000576   0x00000576   0x00000024   Code   RO         1026    .text               mc_w.l(llsshr.o)
-    0x0000059a   0x0000059a   0x00000000   Code   RO         1028    .text               mc_w.l(iusefp.o)
-    0x0000059a   0x0000059a   0x000000ba   Code   RO         1029    .text               mf_w.l(depilogue.o)
-    0x00000654   0x00000654   0x00000024   Code   RO         1035    .text               mc_w.l(init.o)
-    0x00000678   0x00000678   0x00000170   Code   RO          452    i.CS_getDCOFrequency  msp432p4xx_driverlib.lib(cs.o)
-    0x000007e8   0x000007e8   0x00000018   Code   RO          456    i.CS_getMCLK        msp432p4xx_driverlib.lib(cs.o)
-    0x00000800   0x00000800   0x0000000c   Code   RO          464    i.CS_setExternalClockSourceFrequency  msp432p4xx_driverlib.lib(cs.o)
-    0x0000080c   0x0000080c   0x00000006   Code   RO          467    i.CS_startHFXT      msp432p4xx_driverlib.lib(cs.o)
-    0x00000812   0x00000812   0x00000002   PAD
-    0x00000814   0x00000814   0x00000144   Code   RO          468    i.CS_startHFXTWithTimeout  msp432p4xx_driverlib.lib(cs.o)
-    0x00000958   0x00000958   0x00000006   Code   RO          469    i.CS_startLFXT      msp432p4xx_driverlib.lib(cs.o)
-    0x0000095e   0x0000095e   0x00000002   PAD
-    0x00000960   0x00000960   0x000000b4   Code   RO          470    i.CS_startLFXTWithTimeout  msp432p4xx_driverlib.lib(cs.o)
-    0x00000a14   0x00000a14   0x00000014   Code   RO          518    i.GPIO_getInputPinValue  msp432p4xx_driverlib.lib(gpio.o)
-    0x00000a28   0x00000a28   0x00000028   Code   RO          522    i.GPIO_setAsInputPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x00000a50   0x00000a50   0x0000002c   Code   RO          524    i.GPIO_setAsInputPinWithPullUpResistor  msp432p4xx_driverlib.lib(gpio.o)
-    0x00000a7c   0x00000a7c   0x00000020   Code   RO          525    i.GPIO_setAsOutputPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x00000a9c   0x00000a9c   0x00000014   Code   RO          530    i.GPIO_setOutputHighOnPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x00000ab0   0x00000ab0   0x00000014   Code   RO          531    i.GPIO_setOutputLowOnPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x00000ac4   0x00000ac4   0x0000000e   Code   RO          567    i.Interrupt_enableMaster  msp432p4xx_driverlib.lib(interrupt.o)
-    0x00000ad2   0x00000ad2   0x00000002   PAD
-    0x00000ad4   0x00000ad4   0x00000020   Code   RO          377    i.PID_Init          pid.o
-    0x00000af4   0x00000af4   0x000000ca   Code   RO          378    i.PID_Update        pid.o
+    0x00000184   0x00000184   0x00000024   Code   RO          434    .text               startup_msp432p401r_uvision.o
+    0x000001a8   0x000001a8   0x0000014e   Code   RO          766    .text               mf_w.l(dadd.o)
+    0x000002f6   0x000002f6   0x000000e4   Code   RO          768    .text               mf_w.l(dmul.o)
+    0x000003da   0x000003da   0x000000de   Code   RO          770    .text               mf_w.l(ddiv.o)
+    0x000004b8   0x000004b8   0x00000022   Code   RO          772    .text               mf_w.l(dflti.o)
+    0x000004da   0x000004da   0x00000032   Code   RO          774    .text               mf_w.l(dfixui.o)
+    0x0000050c   0x0000050c   0x0000001e   Code   RO          792    .text               mc_w.l(llshl.o)
+    0x0000052a   0x0000052a   0x00000020   Code   RO          794    .text               mc_w.l(llushr.o)
+    0x0000054a   0x0000054a   0x00000024   Code   RO          796    .text               mc_w.l(llsshr.o)
+    0x0000056e   0x0000056e   0x00000000   Code   RO          798    .text               mc_w.l(iusefp.o)
+    0x0000056e   0x0000056e   0x000000ba   Code   RO          799    .text               mf_w.l(depilogue.o)
+    0x00000628   0x00000628   0x00000024   Code   RO          801    .text               mc_w.l(init.o)
+    0x0000064c   0x0000064c   0x00000170   Code   RO          488    i.CS_getDCOFrequency  msp432p4xx_driverlib.lib(cs.o)
+    0x000007bc   0x000007bc   0x00000018   Code   RO          492    i.CS_getMCLK        msp432p4xx_driverlib.lib(cs.o)
+    0x000007d4   0x000007d4   0x0000000c   Code   RO          500    i.CS_setExternalClockSourceFrequency  msp432p4xx_driverlib.lib(cs.o)
+    0x000007e0   0x000007e0   0x00000006   Code   RO          503    i.CS_startHFXT      msp432p4xx_driverlib.lib(cs.o)
+    0x000007e6   0x000007e6   0x00000002   PAD
+    0x000007e8   0x000007e8   0x00000144   Code   RO          504    i.CS_startHFXTWithTimeout  msp432p4xx_driverlib.lib(cs.o)
+    0x0000092c   0x0000092c   0x00000006   Code   RO          505    i.CS_startLFXT      msp432p4xx_driverlib.lib(cs.o)
+    0x00000932   0x00000932   0x00000002   PAD
+    0x00000934   0x00000934   0x000000b4   Code   RO          506    i.CS_startLFXTWithTimeout  msp432p4xx_driverlib.lib(cs.o)
+    0x000009e8   0x000009e8   0x00000080   Code   RO          296    i.Distance          tima.o
+    0x00000a68   0x00000a68   0x00000058   Code   RO          297    i.EUSCIB0_IRQHandler  tima.o
+    0x00000ac0   0x00000ac0   0x00000014   Code   RO          554    i.GPIO_getInputPinValue  msp432p4xx_driverlib.lib(gpio.o)
+    0x00000ad4   0x00000ad4   0x00000028   Code   RO          558    i.GPIO_setAsInputPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00000afc   0x00000afc   0x0000002c   Code   RO          560    i.GPIO_setAsInputPinWithPullUpResistor  msp432p4xx_driverlib.lib(gpio.o)
+    0x00000b28   0x00000b28   0x00000020   Code   RO          561    i.GPIO_setAsOutputPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00000b48   0x00000b48   0x00000014   Code   RO          566    i.GPIO_setOutputHighOnPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00000b5c   0x00000b5c   0x00000014   Code   RO          567    i.GPIO_setOutputLowOnPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00000b70   0x00000b70   0x00000040   Code   RO          298    i.HCSR04Init        tima.o
+    0x00000bb0   0x00000bb0   0x0000000e   Code   RO          603    i.Interrupt_enableMaster  msp432p4xx_driverlib.lib(interrupt.o)
     0x00000bbe   0x00000bbe   0x00000002   PAD
-    0x00000bc0   0x00000bc0   0x00000010   Code   RO          689    i.SysCtl_disableNMISource  msp432p4xx_driverlib.lib(sysctl.o)
-    0x00000bd0   0x00000bd0   0x00000010   Code   RO          694    i.SysCtl_enableNMISource  msp432p4xx_driverlib.lib(sysctl.o)
-    0x00000be0   0x00000be0   0x0000000c   Code   RO          699    i.SysCtl_getNMISourceStatus  msp432p4xx_driverlib.lib(sysctl.o)
-    0x00000bec   0x00000bec   0x00000050   Code   RO          701    i.SysCtl_getTLVInfo  msp432p4xx_driverlib.lib(sysctl.o)
-    0x00000c3c   0x00000c3c   0x0000008c   Code   RO          272    i.SysInit           sysinit.o
-    0x00000cc8   0x00000cc8   0x0000007c   Code   RO          406    i.SystemInit        system_msp432p401r.o
-    0x00000d44   0x00000d44   0x00000058   Code   RO          296    i.TA2_0_IRQHandler  tima.o
-    0x00000d9c   0x00000d9c   0x00000014   Code   RO          297    i.TimA0_4_PWM_Init  tima.o
-    0x00000db0   0x00000db0   0x0000005c   Code   RO          298    i.TimA0_4_PWM_set_duty  tima.o
-    0x00000e0c   0x00000e0c   0x00000006   Code   RO          299    i.TimA0_4_PWM_stop  tima.o
-    0x00000e12   0x00000e12   0x00000002   PAD
-    0x00000e14   0x00000e14   0x00000030   Code   RO          300    i.TimA1_4_PWM_Init  tima.o
-    0x00000e44   0x00000e44   0x00000084   Code   RO          301    i.TimA1_4_PWM_set_angle  tima.o
-    0x00000ec8   0x00000ec8   0x00000060   Code   RO          303    i.TimA2_Int_Init    tima.o
-    0x00000f28   0x00000f28   0x00000018   Code   RO          628    i.UART_transmitData  msp432p4xx_driverlib.lib(uart.o)
-    0x00000f40   0x00000f40   0x00000018   Code   RO          657    i.WDT_A_holdTimer   msp432p4xx_driverlib.lib(wdt_a.o)
-    0x00000f58   0x00000f58   0x0000010c   Code   RO          473    i._CSComputeCLKFrequency  msp432p4xx_driverlib.lib(cs.o)
-    0x00001064   0x00001064   0x00000020   Code   RO          775    i.__0printf$1       mc_w.l(printf1.o)
-    0x00001084   0x00001084   0x0000000e   Code   RO         1039    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00001092   0x00001092   0x00000002   Code   RO         1040    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00001094   0x00001094   0x0000000e   Code   RO         1041    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x000010a2   0x000010a2   0x00000002   PAD
-    0x000010a4   0x000010a4   0x00000154   Code   RO          782    i._printf_core      mc_w.l(printf1.o)
-    0x000011f8   0x000011f8   0x00000028   Code   RO          204    i.delay_init        delay.o
-    0x00001220   0x00001220   0x00000018   Code   RO          205    i.delay_ms          delay.o
-    0x00001238   0x00001238   0x00000034   Code   RO          206    i.delay_us          delay.o
-    0x0000126c   0x0000126c   0x00000010   Code   RO            4    i.fputc             msp432carmain.o
-    0x0000127c   0x0000127c   0x00000008   Code   RO          242    i.key_Init          key.o
-    0x00001284   0x00001284   0x0000002e   Code   RO          243    i.key_Value         key.o
-    0x000012b2   0x000012b2   0x00000002   PAD
-    0x000012b4   0x000012b4   0x000000e0   Code   RO            5    i.main              msp432carmain.o
-    0x00001394   0x00001394   0x00000008   Code   RO            6    i.motor_pinint      msp432carmain.o
-    0x0000139c   0x0000139c   0x000001a0   Code   RO          304    i.read_sensor_values  tima.o
-    0x0000153c   0x0000153c   0x0000001c   Code   RO            7    i.start             msp432carmain.o
-    0x00001558   0x00001558   0x0000001a   Code   RO            8    i.stop              msp432carmain.o
-    0x00001572   0x00001572   0x00000002   PAD
-    0x00001574   0x00001574   0x00000024   Data   RO            9    .constdata          msp432carmain.o
-    0x00001598   0x00001598   0x00000020   Data   RO         1037    Region$$Table       anon$$obj.o
+    0x00000bc0   0x00000bc0   0x00000020   Code   RO          413    i.PID_Init          pid.o
+    0x00000be0   0x00000be0   0x000000ca   Code   RO          414    i.PID_Update        pid.o
+    0x00000caa   0x00000caa   0x00000002   PAD
+    0x00000cac   0x00000cac   0x00000010   Code   RO          725    i.SysCtl_disableNMISource  msp432p4xx_driverlib.lib(sysctl.o)
+    0x00000cbc   0x00000cbc   0x00000010   Code   RO          730    i.SysCtl_enableNMISource  msp432p4xx_driverlib.lib(sysctl.o)
+    0x00000ccc   0x00000ccc   0x0000000c   Code   RO          735    i.SysCtl_getNMISourceStatus  msp432p4xx_driverlib.lib(sysctl.o)
+    0x00000cd8   0x00000cd8   0x00000050   Code   RO          737    i.SysCtl_getTLVInfo  msp432p4xx_driverlib.lib(sysctl.o)
+    0x00000d28   0x00000d28   0x0000008c   Code   RO          272    i.SysInit           sysinit.o
+    0x00000db4   0x00000db4   0x0000007c   Code   RO          442    i.SystemInit        system_msp432p401r.o
+    0x00000e30   0x00000e30   0x00000098   Code   RO          299    i.TA2_0_IRQHandler  tima.o
+    0x00000ec8   0x00000ec8   0x00000014   Code   RO          300    i.TimA0_4_PWM_Init  tima.o
+    0x00000edc   0x00000edc   0x0000005c   Code   RO          301    i.TimA0_4_PWM_set_duty  tima.o
+    0x00000f38   0x00000f38   0x00000006   Code   RO          302    i.TimA0_4_PWM_stop  tima.o
+    0x00000f3e   0x00000f3e   0x00000002   PAD
+    0x00000f40   0x00000f40   0x00000030   Code   RO          303    i.TimA1_4_PWM_Init  tima.o
+    0x00000f70   0x00000f70   0x00000084   Code   RO          304    i.TimA1_4_PWM_set_angle  tima.o
+    0x00000ff4   0x00000ff4   0x00000070   Code   RO          306    i.TimA2_Int_Init    tima.o
+    0x00001064   0x00001064   0x00000018   Code   RO          693    i.WDT_A_holdTimer   msp432p4xx_driverlib.lib(wdt_a.o)
+    0x0000107c   0x0000107c   0x0000010c   Code   RO          509    i._CSComputeCLKFrequency  msp432p4xx_driverlib.lib(cs.o)
+    0x00001188   0x00001188   0x0000000e   Code   RO          805    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00001196   0x00001196   0x00000002   Code   RO          806    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00001198   0x00001198   0x0000000e   Code   RO          807    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000011a6   0x000011a6   0x00000002   PAD
+    0x000011a8   0x000011a8   0x00000028   Code   RO          204    i.delay_init        delay.o
+    0x000011d0   0x000011d0   0x00000018   Code   RO          205    i.delay_ms          delay.o
+    0x000011e8   0x000011e8   0x00000034   Code   RO          206    i.delay_us          delay.o
+    0x0000121c   0x0000121c   0x00000008   Code   RO          242    i.key_Init          key.o
+    0x00001224   0x00001224   0x0000002e   Code   RO          243    i.key_Value         key.o
+    0x00001252   0x00001252   0x00000002   PAD
+    0x00001254   0x00001254   0x000000e0   Code   RO            5    i.main              msp432carmain.o
+    0x00001334   0x00001334   0x00000008   Code   RO            6    i.motor_pinint      msp432carmain.o
+    0x0000133c   0x0000133c   0x00000140   Code   RO          308    i.read_sensor_values  tima.o
+    0x0000147c   0x0000147c   0x00000014   Code   RO          309    i.read_us_values    tima.o
+    0x00001490   0x00001490   0x0000001c   Code   RO            7    i.start             msp432carmain.o
+    0x000014ac   0x000014ac   0x0000001a   Code   RO            8    i.stop              msp432carmain.o
+    0x000014c6   0x000014c6   0x00000002   PAD
+    0x000014c8   0x000014c8   0x00000024   Data   RO            9    .constdata          msp432carmain.o
+    0x000014ec   0x000014ec   0x00000020   Data   RO          803    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x000015b8, Size: 0x000002d0, Max: 0x00010000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0000150c, Size: 0x000002f0, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x000015b8   0x00000001   Data   RW          207    .data               delay.o
-    0x20000001   0x000015b9   0x00000003   PAD
-    0x20000004   0x000015bc   0x0000006c   Data   RW          306    .data               tima.o
-    0x20000070   0x00001628   0x00000008   Data   RW          474    .data               msp432p4xx_driverlib.lib(cs.o)
-    0x20000078   0x00001630   0x00000030   Data   RW          535    .data               msp432p4xx_driverlib.lib(gpio.o)
-    0x200000a8   0x00001660   0x00000004   Data   RW         1017    .data               mc_w.l(stdout.o)
-    0x200000ac        -       0x00000020   Zero   RW          305    .bss                tima.o
-    0x200000cc   0x00001664   0x00000004   PAD
-    0x200000d0        -       0x00000200   Zero   RW          395    STACK               startup_msp432p401r_uvision.o
+    0x20000000   0x0000150c   0x00000001   Data   RW          207    .data               delay.o
+    0x20000001   0x0000150d   0x00000003   PAD
+    0x20000004   0x00001510   0x000000b0   Data   RW          314    .data               tima.o
+    0x200000b4   0x000015c0   0x00000008   Data   RW          510    .data               msp432p4xx_driverlib.lib(cs.o)
+    0x200000bc   0x000015c8   0x00000030   Data   RW          571    .data               msp432p4xx_driverlib.lib(gpio.o)
+    0x200000ec   0x000015f8   0x00000004   PAD
+    0x200000f0        -       0x00000200   Zero   RW          431    STACK               startup_msp432p401r_uvision.o
 
 
 ==============================================================================
@@ -1069,17 +782,17 @@ Image component sizes
 
        116         16          0          1          0       1643   delay.o
         54          0          0          0          0        959   key.o
-       302         16         36          0          0      18550   msp432carmain.o
+       286         12         36          0          0      21486   msp432carmain.o
        234          6          0          0          0       1544   pid.o
         36          8        324          0        512        856   startup_msp432p401r_uvision.o
        140         14          0          0          0        502   sysinit.o
        124         34          0          0          0        569   system_msp432p401r.o
-       898        162          0        108         32       5219   tima.o
+      1182        196          0        176          0       7935   tima.o
 
     ----------------------------------------------------------------------
-      1912        256        392        112        548      29842   Object Totals
+      2180        286        392        180        512      35494   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         8          0          0          3          4          0   (incl. Padding)
+         8          0          0          3          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1100,9 +813,6 @@ Image component sizes
         30          0          0          0          0         68   llshl.o
         36          0          0          0          0         68   llsshr.o
         32          0          0          0          0         68   llushr.o
-       372         14          0          0          0        184   printf1.o
-         0          0          0          4          0          0   stdout.o
-        44          0          0          0          0         80   uidiv.o
        334          0          0          0          0        148   dadd.o
        222          0          0          0          0        100   ddiv.o
        186          0          0          0          0        176   depilogue.o
@@ -1114,23 +824,22 @@ Image component sizes
        176         32          0         48          0        696   gpio.o
         14          0          0          0          0        124   interrupt.o
        124         24          0          0          0        476   sysctl.o
-        24          0          0          0          0        116   uart.o
         24          6          0          0          0        116   wdt_a.o
 
     ----------------------------------------------------------------------
-      3256        266          0         60          0       3956   Library Totals
-        10          0          0          0          0          0   (incl. Padding)
+      2816        252          0         56          4       3576   Library Totals
+        10          0          0          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-       604         30          0          4          0        536   mc_w.l
+       188         16          0          0          0        272   mc_w.l
       1054          0          0          0          0        672   mf_w.l
-      1588        236          0         56          0       2748   msp432p4xx_driverlib.lib
+      1564        236          0         56          0       2632   msp432p4xx_driverlib.lib
 
     ----------------------------------------------------------------------
-      3256        266          0         60          0       3956   Library Totals
+      2816        252          0         56          4       3576   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1139,15 +848,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5168        522        392        172        548      29830   Grand Totals
-      5168        522        392        172        548      29830   ELF Image Totals
-      5168        522        392        172          0          0   ROM Totals
+      4996        538        392        236        516      35058   Grand Totals
+      4996        538        392        236        516      35058   ELF Image Totals
+      4996        538        392        236          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 5560 (   5.43kB)
-    Total RW  Size (RW Data + ZI Data)               720 (   0.70kB)
-    Total ROM Size (Code + RO Data + RW Data)       5732 (   5.60kB)
+    Total RO  Size (Code + RO Data)                 5388 (   5.26kB)
+    Total RW  Size (RW Data + ZI Data)               752 (   0.73kB)
+    Total ROM Size (Code + RO Data + RW Data)       5624 (   5.49kB)
 
 ==============================================================================
 

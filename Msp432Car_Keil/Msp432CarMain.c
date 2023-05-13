@@ -50,6 +50,8 @@ int main() {
     MAP_UART_initModule(EUSCI_A1_BASE,&uartConfig);
     MAP_UART_enableModule(EUSCI_A1_BASE);
 		
+		//i2c_init();
+	
     // 按键初始化
     key_Init();
 
@@ -87,11 +89,10 @@ int main() {
         if (keyValue == KEY1_PRES){
             GPIO_setOutputHighOnPin(GPIO_PORT_P1,GPIO_PIN0);
             start();
-            //TimA1_4_PWM_set_angle(45);
+					  //delay_ms(1000);
         }else if (keyValue == KEY2_PRES){
             GPIO_setOutputLowOnPin(GPIO_PORT_P1,GPIO_PIN0);
             stop();
-            //TimA1_4_PWM_set_angle(135);
         }
 				
     }
@@ -103,23 +104,11 @@ void motor_pinint( )
     GPIO_setAsOutputPin(GPIO_PORT_P2,GPIO_PIN4 | GPIO_PIN6);
 }
 
-///* 循迹模块引脚初始化 */
-//void track_pinint(){
-//    GPIO_setAsInputPin(GPIO_PORT_P10,GPIO_PIN5);
-//    GPIO_setAsInputPin(GPIO_PORT_P10,GPIO_PIN3);
-//    GPIO_setAsInputPin(GPIO_PORT_P10,GPIO_PIN1);
-//    GPIO_setAsInputPin(GPIO_PORT_P7,GPIO_PIN7);
-//    GPIO_setAsInputPin(GPIO_PORT_P7,GPIO_PIN5);
-//    GPIO_setAsInputPin(GPIO_PORT_P9,GPIO_PIN7);
-//    GPIO_setAsInputPin(GPIO_PORT_P9,GPIO_PIN5);
-//    GPIO_setAsInputPin(GPIO_PORT_P7,GPIO_PIN0);
-//}
-
 /* 控制车前进 */
 void start(){
     GPIO_setOutputLowOnPin(GPIO_PORT_P2,GPIO_PIN4);
     GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN6);
-    TimA0_4_PWM_set_duty(100);
+    TimA0_4_PWM_set_duty(50);
 }
 
 /* 控制车停止 */

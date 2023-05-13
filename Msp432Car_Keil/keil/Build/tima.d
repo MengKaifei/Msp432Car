@@ -45,3 +45,5 @@
 .\build\tima.o: ..\lib\PID.h
 .\build\tima.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\build\tima.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\tima.o: ..\lib\delay.h
+.\build\tima.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
